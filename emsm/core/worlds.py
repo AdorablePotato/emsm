@@ -280,9 +280,10 @@ class WorldWrapper(object):
                             .format(self._name))
 
         # server
-        if not self._conf["server"] in self._app.server().get_names():
-            raise ValueError("{} - conf:server does not exist"\
-                             .format(self._name))
+        if not self._conf["server"] == "custom":
+            if not self._conf["server"] in self._app.server().get_names():
+                raise ValueError("{} - conf:server does not exist"\
+                                 .format(self._name))
         return None
 
     def worldpath_to_ospath(self, rel_path):
@@ -677,6 +678,7 @@ class WorldWrapper(object):
                 # Fire off the start command.
                 sys_cmd = shlex.split(sys_cmd)
                 subprocess.call(sys_cmd)
+
         finally:
             # We may have not the rights to change back.
             # E.g.: The EMSM was invoked in /root, but we dropped privileges.

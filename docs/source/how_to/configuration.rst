@@ -140,6 +140,8 @@ section:
     server. If your server is not listed, you can create a new plugin, which
     provides a :class:`server wrapper <emsm.core.server.BaseServerWrapper>`.
 
+    There is a special ``custom`` server type. This is for servers that are not supported by emsm server plugin. If you use the ``custom`` type you must also override the server's start_command. (read below)
+
 You can overridde some global plugin and server options for each world:
 
 .. code-block:: ini
@@ -168,6 +170,19 @@ not the current server of the world:
 
 Check out the :ref:`plugins` documentation, if you want to know more about their
 configuration.
+
+If you choose to use the ``custom`` server type, you should always provide a start_command (and preferably an exe_path) like this:
+
+.. code-block:: ini
+
+    [server:custom]
+    start_command = java -jar {instance_dir}/server/ftb_direwolf20_1_10/{server_exe} nogui
+    exe_path = FTBserver-1.10.2-12.18.2.2171-universal.jar
+
+Note the ``{instance_dir}`` placeholder in the start_command value. This will be replaced with the ``instace_dir`` parameter passed to ``emsm.run()``.
+
+This way you can use any minecraft servers just make sure, you copy the required files to the world dir manually.
+
 
 Example
 '''''''

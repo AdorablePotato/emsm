@@ -350,8 +350,18 @@ class BaseServerWrapper(object):
         if not cmd:
             cmd = self.default_start_cmd()
 
+        if world:
+            world_conf = self.__app.conf().world(world)
+            if world_conf.has_option("server:custom", "exe_path"):
+                server_exe_path = world_conf["server:custom"]["exe_path"]
+            else:
+                server_exe_path = shlex.quote(self.exe_path())
+        else:
+            server_exe_path = shlex.quote(self.exe_path())
+
         cmd = cmd.format(
-            server_exe = shlex.quote(self.exe_path()),
+            instance_dir = self.__app._paths.instance(),
+            server_exe = server_exe_path,
             server_dir = shlex.quote(self.directory())
         )
         return cmd
@@ -906,6 +916,39 @@ class BungeeCordServerWrapper(BaseServerWrapper):
         return (ip, port)
 
 
+# Custom server
+# '''''''''''''
+
+class Custom(BaseServerWrapper):
+
+    @classmethod
+    def name(self):
+        return "custom"
+
+    def translate_command(self, cmd):
+        return cmd
+
+    def default_start_cmd(self):
+        start_cmd = "java -jar {} nogui".format(shlex.quote(self.exe_path()))
+        return start_cmd
+
+    def exe_path(self):
+        raise NotImplementedError("When using custom server, you must specify the start_cmd in the world config file!")
+
+    def default_url(self):
+        raise NotImplementedError()
+
+    def reinstall(self):
+        raise NotImplementedError()
+
+    def install(self):
+        raise NotImplementedError()
+
+    def is_installed(self):
+        return True
+
+
+
 # Spigot (1.8+)
 # '''''''''''''
 
@@ -1096,6 +1139,7 @@ class ServerManager(object):
             MinecraftForge_1_10,
             BungeeCordServerWrapper,
             Spigot,
+            Custom
             ]
 
         for wrapper in wrappers:
