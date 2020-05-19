@@ -675,7 +675,7 @@ class Vanilla_1_12(VanillaBase):
         return "vanilla 1.12"
 
     def default_url(self):
-        return "https://launcher.mojang.com/v1/objects/886945bfb2b978778c3a0288fd7fab09d315b25f/server.jar"
+        return "https://s3.amazonaws.com/Minecraft.Download/versions/1.12.2/minecraft_server.1.12.2.jar"
 
     def log_path(self):
         return "./logs/latest.log"
@@ -933,7 +933,7 @@ class MinecraftForge_1_12(MinecraftForgeBase, Vanilla_1_12):
         return "minecraft forge 1.12"
 
     def default_url(self):
-        return "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.12.2-14.23.5.2855/forge-1.12.2-14.23.5.2855-installer.jar"
+        return "https://files.minecraftforge.net/maven/net/minecraftforge/forge/1.12.2-14.23.5.2854/forge-1.12.2-14.23.5.2854-installer.jar"
 
     def exe_path(self):
         filenames = [filename \
