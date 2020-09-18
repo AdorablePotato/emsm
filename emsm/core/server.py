@@ -713,7 +713,7 @@ class Vanilla_1_14(VanillaBase):
         return "vanilla 1.14"
 
     def default_url(self):
-        return "https://launcher.mojang.com/v1/objects/3dc3d84a581f14691199cf6831b71ed1296a9fdf/server.jar"
+        return "https://launcher.mojang.com/v1/objects/808be3869e2ca6b62378f9f4b33c946621620019/server.jar"
 
     def log_path(self):
         return "./logs/latest.log"
@@ -723,7 +723,6 @@ class Vanilla_1_14(VanillaBase):
 
     def log_error_re(self):
         return re.compile(".* \[SEVERE\] .*", re.MULTILINE)
-
 
 # MinecraftForge
 # ''''''''''''''
