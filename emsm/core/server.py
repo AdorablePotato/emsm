@@ -997,6 +997,24 @@ class MinecraftForge_1_15(MinecraftForgeBase, Vanilla_1_15):
         return os.path.join(self.directory(), filename)
 
 
+class MinecraftForge_1_16(MinecraftForgeBase, Vanilla_1_16):
+
+    @classmethod
+    def name(self):
+        return "minecraft forge 1.16"
+
+    def default_url(self):
+        # 1.16.5
+        return "https://files.minecraftforge.net/maven/net/minecraftforge/forge/1.16.5-36.1.0/forge-1.16.5-36.1.0-installer.jar"
+
+    def exe_path(self):
+        filenames = [filename \
+                     for filename in os.listdir(self.directory()) \
+                     if re.match("^forge-1\.16.*.jar$", filename)]
+        filename = filenames[0]
+        return os.path.join(self.directory(), filename)
+
+
 # Bungeecord
 # ''''''''''
 
