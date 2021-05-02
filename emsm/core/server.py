@@ -882,7 +882,7 @@ class MinecraftForge_1_8(MinecraftForgeBase, Vanilla_1_8):
         return "minecraft forge 1.8"
 
     def default_url(self):
-        return "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.8.9-11.15.1.1722/forge-1.8.9-11.15.1.1722-installer.jar"
+        return "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar"
 
     def exe_path(self):
         filenames = [filename \
@@ -899,7 +899,7 @@ class MinecraftForge_1_10(MinecraftForgeBase, Vanilla_1_10):
         return "minecraft forge 1.10"
 
     def default_url(self):
-        return "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.10.2-12.18.0.2008/forge-1.10.2-12.18.0.2008-installer.jar"
+        return "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.10.2-12.18.3.2511/forge-1.10.2-12.18.3.2511-installer.jar"
 
     def exe_path(self):
         filenames = [filename \
@@ -916,7 +916,7 @@ class MinecraftForge_1_11(MinecraftForgeBase, Vanilla_1_11):
         return "minecraft forge 1.11"
 
     def default_url(self):
-        return "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.11.2-13.20.0.2228/forge-1.11.2-13.20.0.2228-installer.jar"
+        return "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.11.2-13.20.1.2588/forge-1.11.2-13.20.1.2588-installer.jar"
 
     def exe_path(self):
         filenames = [filename \
@@ -933,7 +933,7 @@ class MinecraftForge_1_12(MinecraftForgeBase, Vanilla_1_12):
         return "minecraft forge 1.12"
 
     def default_url(self):
-        return "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.12.2-14.23.5.2854/forge-1.12.2-14.23.5.2854-installer.jar"
+        return "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.12.2-14.23.5.2855/forge-1.12.2-14.23.5.2855-installer.jar"
 
     def exe_path(self):
         filenames = [filename \
@@ -969,7 +969,7 @@ class MinecraftForge_1_14(MinecraftForgeBase, Vanilla_1_14):
 
     def default_url(self):
         # 1.14.4
-        return "https://files.minecraftforge.net/maven/net/minecraftforge/forge/1.14.4-28.1.116/forge-1.14.4-28.1.116-installer.jar"
+        return "https://files.minecraftforge.net/maven/net/minecraftforge/forge/1.14.4-28.2.0/forge-1.14.4-28.2.0-installer.jar"
 
     def exe_path(self):
         filenames = [filename \
@@ -987,7 +987,7 @@ class MinecraftForge_1_15(MinecraftForgeBase, Vanilla_1_15):
 
     def default_url(self):
         # 1.15.2
-        return "https://files.minecraftforge.net/maven/net/minecraftforge/forge/1.15.2-31.0.1/forge-1.15.2-31.0.1-installer.jar"
+        return "https://files.minecraftforge.net/maven/net/minecraftforge/forge/1.15.2-31.2.0/forge-1.15.2-31.2.0-installer.jar"
 
     def exe_path(self):
         filenames = [filename \
