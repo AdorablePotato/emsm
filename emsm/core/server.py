@@ -751,7 +751,7 @@ class Vanilla_1_16(VanillaBase):
         return "vanilla 1.16"
 
     def default_url(self):
-        return "https://launcher.mojang.com/v1/objects/a412fd69db1f81db3f511c1463fd304675244077/server.jar";
+        return "https://launcher.mojang.com/v1/objects/a412fd69db1f81db3f511c1463fd304675244077/server.jar"
 
     def log_path(self):
         return "./logs/latest.log"
@@ -770,7 +770,7 @@ class Vanilla_1_18(VanillaBase):
         return "vanilla 1.18"
 
     def default_url(self):
-        return "https://launcher.mojang.com/v1/objects/c8f83c5655308435b3dcf03c06d9fe8740a77469/server.jar";
+        return "https://launcher.mojang.com/v1/objects/c8f83c5655308435b3dcf03c06d9fe8740a77469/server.jar"
 
     def log_path(self):
         return "./logs/latest.log"
@@ -1371,6 +1371,7 @@ class ServerManager(object):
             Vanilla_1_14,
             Vanilla_1_15,
             Vanilla_1_16,
+            Vanilla_1_18,
             MinecraftForge_1_6,
             MinecraftForge_1_7,
             MinecraftForge_1_8,
