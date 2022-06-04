@@ -675,7 +675,7 @@ class Vanilla_1_12(VanillaBase):
         return "vanilla 1.12"
 
     def default_url(self):
-        return "https://launcher.mojang.com/v1/objects/886945bfb2b978778c3a0288fd7fab09d315b25f/server.jar"
+        return "https://s3.amazonaws.com/Minecraft.Download/versions/1.12.2/minecraft_server.1.12.2.jar"
 
     def log_path(self):
         return "./logs/latest.log"
@@ -751,13 +751,32 @@ class Vanilla_1_16(VanillaBase):
         return "vanilla 1.16"
 
     def default_url(self):
-        return "https://launcher.mojang.com/v1/objects/a412fd69db1f81db3f511c1463fd304675244077/server.jar";
+        return "https://launcher.mojang.com/v1/objects/a412fd69db1f81db3f511c1463fd304675244077/server.jar"
 
     def log_path(self):
         return "./logs/latest.log"
 
     def log_start_re(self):
         return re.compile("^.*Starting minecraft server version 1\.16\.1.*")
+
+    def log_error_re(self):
+        return re.compile(".* \[SEVERE\] .*", re.MULTILINE)
+
+
+class Vanilla_1_18(VanillaBase):
+
+    @classmethod
+    def name(self):
+        return "vanilla 1.18"
+
+    def default_url(self):
+        return "https://launcher.mojang.com/v1/objects/c8f83c5655308435b3dcf03c06d9fe8740a77469/server.jar"
+
+    def log_path(self):
+        return "./logs/latest.log"
+
+    def log_start_re(self):
+        return re.compile("^.*Starting minecraft server version 1\.18\.2.*")
 
     def log_error_re(self):
         return re.compile(".* \[SEVERE\] .*", re.MULTILINE)
@@ -882,7 +901,7 @@ class MinecraftForge_1_8(MinecraftForgeBase, Vanilla_1_8):
         return "minecraft forge 1.8"
 
     def default_url(self):
-        return "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.8.9-11.15.1.1722/forge-1.8.9-11.15.1.1722-installer.jar"
+        return "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.8.9-11.15.1.2318-1.8.9/forge-1.8.9-11.15.1.2318-1.8.9-installer.jar"
 
     def exe_path(self):
         filenames = [filename \
@@ -899,7 +918,7 @@ class MinecraftForge_1_10(MinecraftForgeBase, Vanilla_1_10):
         return "minecraft forge 1.10"
 
     def default_url(self):
-        return "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.10.2-12.18.0.2008/forge-1.10.2-12.18.0.2008-installer.jar"
+        return "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.10.2-12.18.3.2511/forge-1.10.2-12.18.3.2511-installer.jar"
 
     def exe_path(self):
         filenames = [filename \
@@ -916,7 +935,7 @@ class MinecraftForge_1_11(MinecraftForgeBase, Vanilla_1_11):
         return "minecraft forge 1.11"
 
     def default_url(self):
-        return "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.11.2-13.20.0.2228/forge-1.11.2-13.20.0.2228-installer.jar"
+        return "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.11.2-13.20.1.2588/forge-1.11.2-13.20.1.2588-installer.jar"
 
     def exe_path(self):
         filenames = [filename \
@@ -933,12 +952,84 @@ class MinecraftForge_1_12(MinecraftForgeBase, Vanilla_1_12):
         return "minecraft forge 1.12"
 
     def default_url(self):
-        return "http://files.minecraftforge.net/maven/net/minecraftforge/forge/1.12.2-14.23.5.2854/forge-1.12.2-14.23.5.2854-installer.jar"
+        return "https://files.minecraftforge.net/maven/net/minecraftforge/forge/1.12.2-14.23.5.2854/forge-1.12.2-14.23.5.2854-installer.jar"
 
     def exe_path(self):
         filenames = [filename \
                      for filename in os.listdir(self.directory()) \
                      if re.match("^forge-1\.12.*.jar$", filename)]
+        filename = filenames[0]
+        return os.path.join(self.directory(), filename)
+
+
+class MinecraftForge_1_13(MinecraftForgeBase, Vanilla_1_13):
+
+    @classmethod
+    def name(self):
+        return "minecraft forge 1.13"
+
+    def default_url(self):
+        # 1.13.2
+        return "https://files.minecraftforge.net/maven/net/minecraftforge/forge/1.13.2-25.0.219/forge-1.13.2-25.0.219-installer.jar"
+
+    def exe_path(self):
+        filenames = [filename \
+                     for filename in os.listdir(self.directory()) \
+                     if re.match("^forge-1\.13.*.jar$", filename)]
+        filename = filenames[0]
+        return os.path.join(self.directory(), filename)
+
+
+class MinecraftForge_1_14(MinecraftForgeBase, Vanilla_1_14):
+
+    @classmethod
+    def name(self):
+        return "minecraft forge 1.14"
+
+    def default_url(self):
+        # 1.14.4
+        return "https://files.minecraftforge.net/maven/net/minecraftforge/forge/1.14.4-28.2.0/forge-1.14.4-28.2.0-installer.jar"
+
+    def exe_path(self):
+        filenames = [filename \
+                     for filename in os.listdir(self.directory()) \
+                     if re.match("^forge-1\.14.*.jar$", filename)]
+        filename = filenames[0]
+        return os.path.join(self.directory(), filename)
+
+
+class MinecraftForge_1_15(MinecraftForgeBase, Vanilla_1_15):
+
+    @classmethod
+    def name(self):
+        return "minecraft forge 1.15"
+
+    def default_url(self):
+        # 1.15.2
+        return "https://files.minecraftforge.net/maven/net/minecraftforge/forge/1.15.2-31.2.0/forge-1.15.2-31.2.0-installer.jar"
+
+    def exe_path(self):
+        filenames = [filename \
+                     for filename in os.listdir(self.directory()) \
+                     if re.match("^forge-1\.15.*.jar$", filename)]
+        filename = filenames[0]
+        return os.path.join(self.directory(), filename)
+
+
+class MinecraftForge_1_16(MinecraftForgeBase, Vanilla_1_16):
+
+    @classmethod
+    def name(self):
+        return "minecraft forge 1.16"
+
+    def default_url(self):
+        # 1.16.5
+        return "https://files.minecraftforge.net/maven/net/minecraftforge/forge/1.16.5-36.1.0/forge-1.16.5-36.1.0-installer.jar"
+
+    def exe_path(self):
+        filenames = [filename \
+                     for filename in os.listdir(self.directory()) \
+                     if re.match("^forge-1\.16.*.jar$", filename)]
         filename = filenames[0]
         return os.path.join(self.directory(), filename)
 
@@ -1280,12 +1371,16 @@ class ServerManager(object):
             Vanilla_1_14,
             Vanilla_1_15,
             Vanilla_1_16,
+            Vanilla_1_18,
             MinecraftForge_1_6,
             MinecraftForge_1_7,
             MinecraftForge_1_8,
             MinecraftForge_1_10,
             MinecraftForge_1_11,
             MinecraftForge_1_12,
+            MinecraftForge_1_13,
+            MinecraftForge_1_14,
+            MinecraftForge_1_15,
             BungeeCordServerWrapper,
             Spigot,
             Spigot_1_8,
