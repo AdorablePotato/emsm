@@ -763,6 +763,25 @@ class Vanilla_1_16(VanillaBase):
         return re.compile(".* \[SEVERE\] .*", re.MULTILINE)
 
 
+class Vanilla_1_18(VanillaBase):
+
+    @classmethod
+    def name(self):
+        return "vanilla 1.18"
+
+    def default_url(self):
+        return "https://launcher.mojang.com/v1/objects/c8f83c5655308435b3dcf03c06d9fe8740a77469/server.jar";
+
+    def log_path(self):
+        return "./logs/latest.log"
+
+    def log_start_re(self):
+        return re.compile("^.*Starting minecraft server version 1\.18\.2.*")
+
+    def log_error_re(self):
+        return re.compile(".* \[SEVERE\] .*", re.MULTILINE)
+
+
 # MinecraftForge
 # ''''''''''''''
 
